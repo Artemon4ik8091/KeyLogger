@@ -51,15 +51,6 @@ class Program
             client.BeginReceive(data, 0, data.Length, SocketFlags.None, ClientReciveMessageCallback, new ClientMessage(client, data));
         }
     }
-
-    static void ClientSendMessageCallback(IAsyncResult result)
-    {
-        if (result.AsyncState != null)
-        {
-            Socket client = (Socket)result.AsyncState;
-            client.EndSend(result);
-        }
-    }
 }
 
 class ClientMessage
