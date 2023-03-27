@@ -25,7 +25,7 @@ class Program
     {
         if (result.AsyncState != null)
         {
-            byte[] data = new byte[1024];
+            byte[] data = new byte[64];
             Socket server = (Socket)result.AsyncState;
             Socket client = server.EndAccept(result);
             Console.WriteLine($"Connection has occurred: {client.RemoteEndPoint} to {DateTime.Now}");
@@ -56,7 +56,7 @@ class Program
 class ClientMessage
 {
     Socket _client;
-    byte[] _message = new byte[1024];
+    byte[] _message = new byte[64];
     public ClientMessage(Socket client, byte[] message)
     {
         _client = client;
