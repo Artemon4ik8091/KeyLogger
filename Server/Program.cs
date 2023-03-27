@@ -28,7 +28,7 @@ class Program
             byte[] data = new byte[1024];
             Socket server = (Socket)result.AsyncState;
             Socket client = server.EndAccept(result);
-            Console.WriteLine($"Connection has occurred: {client.RemoteEndPoint} in {DateTime.Now}");
+            Console.WriteLine($"Connection has occurred: {client.RemoteEndPoint} to {DateTime.Now}");
             client.BeginReceive(data, 0, data.Length, SocketFlags.None, ClientReciveMessageCallback, new ClientMessage(client, data));
             server.BeginAccept(AcceptConnectionCallback, server);
         }
