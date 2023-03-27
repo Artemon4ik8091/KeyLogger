@@ -22,13 +22,13 @@ namespace ConsoleApp1
             if (SaveLocation == "1" || SaveLocation == "Yes")
             {
                 SaveFile = true;
+                Console.WriteLine("Where do you want to save the file? Enter the save path (Example: C:\\Users\\%USERNAME%\\Desktop\\).");
+                SaveLocation = Console.ReadLine();
             }
             else
             {
                 SaveFile = false;
             }
-            Console.WriteLine("Where do you want to save the file? Enter the save path (Example: C:\\Users\\%USERNAME%\\Desktop\\).");
-            SaveLocation = Console.ReadLine();
             Console.WriteLine("OK, now an attempt will be made to connect to the server. Please wait...");
             IPEndPoint serverPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 80);
             Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
