@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 class Program
 {
     static void Main()
@@ -45,8 +45,8 @@ class Program
             if (data[0] > 0)
             {
                 string message = Encoding.UTF8.GetString(data);
-                if(message != "<Decimal><Decimal>")
-                Console.WriteLine(message);
+                if (message != "<Decimal><Decimal>")
+                    Console.WriteLine(message);
             }
             client.BeginReceive(data, 0, data.Length, SocketFlags.None, ClientReciveMessageCallback, new ClientMessage(client, data));
         }
